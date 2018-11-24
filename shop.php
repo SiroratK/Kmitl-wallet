@@ -12,7 +12,7 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-
+    <!-- Custom styles for this template300*162 -->
     <link href="scss/all.css" rel="stylesheet">
       <link href="scss/vbox.css" rel="stylesheet">
 
@@ -33,12 +33,19 @@
               <img class="mb-4 logo" src="images/logo.png" alt="logo" >
 
               <div class="whitebg">
-              <div class="container" >
-                <div class="vbox" style="height: 100%; width: 100%;">
-      <div>Hello 1</div>
-      <div>Hello 1</div>
-      <div>Hello 1</div>
-      <div>Hello 3</div>
+              <div class="container"  >
+                <div class="vbox" id="frame" style=" width: 100%;">
+                  <button onclick="myFunction()">eeeeee it</button>
+
+<script>
+function myFunction() {
+    var para = document.createElement("P");
+    var t = document.createTextNode("This is a paragraph.");
+
+    para.appendChild(t);
+    document.getElementById("frame").append(para);
+}
+</script>
   </div>
 
               </div>
