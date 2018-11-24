@@ -3,6 +3,10 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
+
+<!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,29 +16,36 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
     <meta name="author" content="">
     <link rel="icon" href="images/icon/icon.ico">
 
-    <title>KMITL Wallet - Register</title>
+    <title>KMITL Wallet - Scan</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template300*162 -->
     <link href="scss/all.css" rel="stylesheet">
+
   </head>
 
-  <body class="text-center">
+  <body>
     <div class="container-fluid">
       <div class="row">
         <div class="col">
           <div class="card">
-            <form class="form">
+            <div class="container" style="margin-left:0;margin-top:10;z-index:5">
+                  <script> document.write('<a class="back" href="javascript:history.back()"> < BACK </a>'); </script>
+            </div>
+            <form class="form text-center">
               <img class="mb-4 logo" src="images/logo.png" alt="logo" >
 
-              <img class="mb-4" src="images/scan.png" alt="scan" style="max-width:150px; width:100%; hight:auto">
-
+              <div class="container">
+              <img class="mb-4" src="images/scan.png" alt="scan" style="max-width:200px; width:100%; height:auto; margin-bottom: 0px !important">
+</div>
               <label for="shopId" class="sr-only">SHOP ID</label>
-              <input type="ref" id="shopId" class="form-control form-control-bottom" placeholder="SHOP ID" required autofocus>
-              </br>
-              <button style="max-width: 40%; align-item: center; margin:auto" class="btn btn-lg btn-primary btn-block" type="submit">ENTER</button>
+              <input type="text" id="shopId" pattern="[0-9]{8}" maxlength="8" 
+              class="form-control form-control-bottom" placeholder="SHOP ID" required autofocus>
+
+              <br>
+              <button formaction="amount.php" style="max-width: 40%; align-item: center; margin:auto" class="btn btn-lg btn-primary btn-block" type="submit">ENTER</button>
 
               <p class="mt-5 mb-3 text-muted">&copy; 2018 CE-KMITL</p>
             </form>

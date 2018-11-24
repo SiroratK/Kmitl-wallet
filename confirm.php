@@ -102,12 +102,7 @@
             <div class="form text-center">
               <img class="mb-4 logo" src="images/logo.png" alt="logo" >
 
-  <div class="textRes" style="color: #000000;"> <br>Please confirm the transfer details are correct:</div>
-
               <div class="whitebg">
-
-
-                </details>
               <div class="container" >
 
 

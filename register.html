@@ -52,18 +52,17 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
               </div>
 
               <div id="customer" class="typeReg" style="display:block">
-
                 <label for="name" class="sr-only">Name</label>
-                <input type="text" id="name" class="form-control" pattern="[a-zA-Z]"
+                <input type="text" id="name" class="form-control"
                   title="Name must contain only character" placeholder="Name" required autofocus>
 
                 <label for="surname" class="sr-only">Surname</label>
-                <input type="text" id="surname" class="form-control" pattern="[a-zA-Z]"
+                <input type="text" id="surname" class="form-control"
                   title="Surname must contain only character" placeholder="Surname" required>
 
-                <label for="customerId" class="sr-only">KMITL ID</label>
+                <!-- <label for="customerId" class="sr-only">KMITL ID</label>
                 <input type="text" id="customerId" class="form-control" pattern="[0-9]{8}$" maxlength="8"
-                  title="ID must be 8 digits of number" placeholder="KMITL ID" required>
+                  title="ID must be 8 digits of number" placeholder="KMITL ID" required> -->
 
                 <label for="inputEmail" class="sr-only">Email address</label>
                 <input type="email" id="inputEmail"
@@ -82,19 +81,21 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
                 <label for="inputPin" class="sr-only">PIN Code</label>
                 <input type="password" id="inputPin" pattern="(?=.*\d)(?=.*[0-9]).{4}" title="PIN code must be 4 digits of number"
                 maxlength="4" class="form-control" placeholder="PIN Code" required>
+
+                <input type="text" id="status" value="customer" class="sr-only" disabled="disabled">
               </div>
 
               <div id="shop" class="w3-container typeReg" style="display:none">
                 <label for="name" class="sr-only">Name</label>
-                <input type="text" id="name" class="form-control" pattern="[a-zA-Z]"
+                <input type="text" id="name" class="form-control"
                   title="Name must contain only character" placeholder="Name" required autofocus>
 
                 <label for="surname" class="sr-only">Surname</label>
-                <input type="text" id="surname" class="form-control" pattern="[a-zA-Z]"
+                <input type="text" id="surname" class="form-control"
                   title="Surname must contain only character" placeholder="Surname" required>
 
                 <label for="shopNeme" class="sr-only">Shop's name</label>
-                <input type="text" id="shopNeme" class="form-control" pattern="[a-zA-Z]"
+                <input type="text" id="shopNeme" class="form-control"
                   title="Surname must contain only character" placeholder="Shop's name" required>
 
                 <label for="inputEmail" class="sr-only">Email address</label>
@@ -114,10 +115,12 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
                 <label for="inputPin" class="sr-only">PIN Code</label>
                 <input type="password" id="inputPin" pattern="(?=.*\d)(?=.*[0-9]).{4}" title="PIN code must be 4 digits of number"
                 maxlength="4" class="form-control" placeholder="PIN Code" required>
+
+                <input type="text" id="status" value="shop" class="sr-only" disabled="disabled">
               </div>
 
               <br>
-              <button formaction="signin.html" class="btn btn-lg btn-primary btn-block" type="submit">Create your account</button>
+              <button formaction="signin.php" class="btn btn-lg btn-primary btn-block" type="submit">Create your account</button>
 
               <p class="mt-5 mb-3 text-muted">&copy; 2018 CE-KMITL</p>
             </form>

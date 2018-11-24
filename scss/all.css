@@ -41,7 +41,7 @@ input {
   max-width: 1000px;
   padding: 30px 15px 15px 15px;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 @media screen and (max-width: 1450px) {
   .form {
@@ -123,8 +123,8 @@ input {
 .back{
   font-weight: bold;
   color: #8e8e8e;
+  font-size: 1vw;
 }
-
 .back:hover, .back:focus, .back:active{
   font-weight: bold;
   color: #cccccc !important;
@@ -152,8 +152,9 @@ input {
   }
 }
 
+
 /*---------------register---------------*/
-.tab {
+.tab, .tab:active, .tab:focus, .tab:link {
   width: 100%;
   padding: 10px 16px;
   background-color: transparent;
@@ -162,7 +163,7 @@ input {
   font-weight: bold;
   color: #47525e;
 }
-.tab:hover, .tab:active, .tab:focus, .tab:focus-within, .tab:link {
+.tab:hover, .tab:focus-within {
   color: #ced4da;
   text-decoration: none !important;
 }
@@ -211,22 +212,22 @@ input {
 /*---------------shop interface---------------*/
 .whitebg {
   display: flex;
-  align-items: center;
+
   justify-content: center;
   background: #FFFFFF;
-  min-height: 300px;
+  min-height: 40%;
   width: 100%;
   border-radius:5px;
 }
 
 /*---------------menu---------------*/
-.col-4 .col-menu {
+.col-menu {
   background-color: ccc !important;
   border: 2px solid #f5f5f5;
   padding: 5px;
   width: 33vh;
 }
-.col-4 .col-menu:hover {
+.col-menu:hover {
   background-color: aaa !important;
   border: 2px solid #f5f5f5;
   padding: 5px;
@@ -236,16 +237,18 @@ input {
   width: 80%;
   margin: 5px;
 }
-
-/*---------------success---------------*/
 .loader {
   border: 8px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 8px solid #3498db;
-  width: 200px;
-  height: 200px;
+  border-top: 8px solid #EF5A28;
+  width: 14vw;
+  height: 14vw;
+  min-width: 180px;
+  min-height: 180px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
+  z-index: 0;
+
 }
 
 /* Safari */
@@ -258,6 +261,7 @@ input {
 0% { transform: rotate(0deg); }
 100% { transform: rotate(360deg); }
 }
+
 
 
 .textRes{

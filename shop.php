@@ -14,6 +14,7 @@
 
     <!-- Custom styles for this template300*162 -->
     <link href="scss/all.css" rel="stylesheet">
+      <link href="scss/vbox.css" rel="stylesheet">
 
   </head>
 
@@ -33,7 +34,12 @@
 
               <div class="whitebg">
               <div class="container" >
-
+                <div class="vbox" style="height: 100%; width: 100%;">
+      <div>Hello 1</div>
+      <div>Hello 1</div>
+      <div>Hello 1</div>
+      <div>Hello 3</div>
+  </div>
 
               </div>
               </div>

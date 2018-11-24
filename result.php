@@ -1,136 +1,97 @@
+$.getScript('https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js', function(){
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="images/icon/icon.ico">
-    <style class="cp-pen-styles">
-    svg {
-      width: 100px;
-      display: block;
-      margin: 40px auto 0;
+var loading = `<style>
+div#container {
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  pointer-events: none;
+  user-select: none;
+}
+div#bkground {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+}
+div#bkground div {
+  width: 182px;
+  height: 182px;
+  background-color: #a3a3ff;
+  border-radius: 100px;
+}
+div#whitecircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+}
+div#whitecircle div {
+  width: 182px;
+  height: 182px;
+  background-color: #fff;
+  border-radius: 100px;
+}
+div#tick {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+}
+div#tick div {
+  color: #E0E0FF;
+  font-size: 0;
+  font-weight: bold;
+}
+</style>
+<div id="container">
+<div id='bkground'><div></div></div>
+<div id='whitecircle'><div></div></div>
+<div id='tick'><div>✔</div></div>
+</div>
+</div>
+$('div#check.check').html(loading);
+var bar = new ProgressBar.Circle(container, {
+  strokeWidth: 5,
+  easing: 'easeInOutExpo',
+  duration: 1500,
+  color: '#a3a3ff',
+  trailColor: '#d1d1ff',
+  trailWidth: 5,
+  svgStyle: null,
+  from: { color: '#a3a3ff', width: 5 },
+  to: { color: '#a3a3ff', width: 5 },
+  step: function(state, circle) {
+    circle.path.setAttribute('stroke', state.color);
+    circle.path.setAttribute('stroke-width', state.width);
+    var value = Math.round(circle.value() * 100);
+    if (value === 0) {
+      circle.setText('');
+    } else {
+      circle.setText(value);
     }
-    .path {
-      stroke-dasharray: 1000;
-      stroke-dashoffset: 0;
-    }
-    .path.circle {
-      -webkit-animation: dash 0.9s ease-in-out;
-      animation: dash 0.9s ease-in-out;
-    }
-    .path.line {
-      stroke-dashoffset: 1000;
-      -webkit-animation: dash 0.9s 0.35s ease-in-out forwards;
-      animation: dash 0.9s 0.35s ease-in-out forwards;
-    }
-    .path.check {
-      stroke-dashoffset: -100;
-      -webkit-animation: dash-check 0.9s 0.35s ease-in-out forwards;
-      animation: dash-check 0.9s 0.35s ease-in-out forwards;
-    }
-    p {
-      text-align: center;
-      margin: 20px 0 60px;
-      font-size: 1.25em;
-    }
-    p.success {
-      color: #73AF55;
-    }
-    p.error {
-      color: #D06079;
-    }
-    @-webkit-keyframes dash {
-      0% {
-        stroke-dashoffset: 1000;
-      }
-      100% {
-        stroke-dashoffset: 0;
-      }
-    }
-    @keyframes dash {
-      0% {
-        stroke-dashoffset: 1000;
-      }
-      100% {
-        stroke-dashoffset: 0;
-      }
-    }
-    @-webkit-keyframes dash-check {
-      0% {
-        stroke-dashoffset: -100;
-      }
-      100% {
-        stroke-dashoffset: 900;
-      }
-    }
-    @keyframes dash-check {
-      0% {
-        stroke-dashoffset: -100;
-      }
-      100% {
-        stroke-dashoffset: 900;
-      }
-    }
-    </style>
+  }
+});
+bar.text.style.color = 'transparent';
+bar.animate(1.0);
+var interval2 = setInterval(function(){
+  if ($('div.progressbar-text').text() == '100') {
+    clearInterval(interval2);
+    $('div#whitecircle div').animate({
+      width: 0,
+      height: 0
+    }, 333, function(){
+      $('div#tick div').animate({
+        fontSize: 150
+      }, 333);
+    });
+  };
+}, 100);
 
-
-
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
-
-
-    <title>KMITL Wallet - Result</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template300*162 -->
-    <link href="scss/all.css" rel="stylesheet">
-    <link href="scss/draw.css" rel="stylesheet">
-
-  </head>
-
-<body>
-<div class="container-fluid">
-      <div class="row">
-        <div class="col">
-          <div class="card">
-
-            <div class="form text-center">
-              <img class="mb-4 logo" src="images/logo.png" alt="logo" >
-
-
-              <div class="container" >
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
-      <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
-      <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
-    </svg>
-    <p class="success">Success!</p>
-
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
-      <circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
-      <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3"/>
-      <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2"/>
-    </svg>
-    <p class="error">Error!</p>
-
-
-
-
-
-              </div>
-
-              
-
-
-
-              <p class="mt-5 mb-3 text-muted">&copy; 2018 CE-KMITL</p>
-            </div>
-          </div>
-        </div>
-      </div>
-  </div>
-
-</body>
-</html>
+})
