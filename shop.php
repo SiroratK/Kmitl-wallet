@@ -12,7 +12,7 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template300*162 -->
+
     <link href="scss/all.css" rel="stylesheet">
       <link href="scss/vbox.css" rel="stylesheet">
 
