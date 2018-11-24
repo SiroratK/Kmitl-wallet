@@ -98,8 +98,8 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
                     title="Surname must contain only character" placeholder="Surname" required>
 
                   <label for="shopNeme" class="sr-only">Shop's name</label>
-                  <input type="text" id="shopNeme" class="form-control" pattern=".{2,}" maxlength="40"
-                    title="Surname must contain only character" placeholder="Shop's name" required>
+                  <input type="text" id="shopNeme" class="form-control" pattern="[^'\x22x27x3Cx3Ex7Bx7Dx5Bx5D]{2,}" maxlength="40"
+                    title="Shop's name must not contain <, >, ', &#34, {, }, [, ]" placeholder="Shop's name" required>
 
                   <label for="inputEmail" class="sr-only">Email address</label>
                   <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
