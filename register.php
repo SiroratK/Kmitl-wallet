@@ -55,7 +55,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
               </div>
 
               <div id="customer" class="typeReg" style="display:block">
-                <form>
+                <form action="" name="frmMain" id="frmMain" method="post">
                   <label for="name" class="sr-only">Name</label>
                   <input type="text" id="name" class="form-control" pattern="[A-Za-z]{2,}" maxlength="20"
                     title="Name must contain only character" placeholder="Name" required autofocus>
@@ -83,7 +83,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
                     maxlength="4" class="form-control" placeholder="PIN Code" required>
 
                   <input type="text" id="status" value="customer" class="sr-only" disabled="disabled">
-                  <button formaction="signin.php" class="btn btn-lg btn-primary btn-block" type="submit" id="btnSend">Create your account</button>
+                  <button formaction="signin.php" class="btn btn-lg btn-primary btn-block" type="submit" id="btnSendCustomer">Create your account</button>
                 </form>
               </div>
 
@@ -119,7 +119,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
                     maxlength="4" class="form-control" placeholder="PIN Code" required>
 
                   <input type="text" id="status" value="shop" class="sr-only" disabled="disabled">
-                  <button formaction="signin.php" class="btn btn-lg btn-primary btn-block" type="submit" id="btnSend">Create your account</button>
+                  <button formaction="signin.php" class="btn btn-lg btn-primary btn-block" type="submit" id="btnSendShop">Create your account</button>
                 </form>
               </div>
 
@@ -162,6 +162,41 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
         document.getElementById(regType).style.display = "block";
         evt.currentTarget.firstElementChild.className += " tab-bottombar-org";
       }
+
+      $(document).ready(function () {
+          $("#btnSendCustomer").click(function () {
+              $.ajax({
+                  type: "POST",
+                  url: "saveCustomer.php",
+                  success: function (result) {
+                      if (result.status == 1) // Success
+                      {
+                          alert(result.message);
+                      }
+                      else // Err
+                      {
+                          alert(result.message);
+                      }
+                  }
+              });
+          });
+        $("#btnSendShop").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "saveShop.php",
+                success: function (result) {
+                    if (result.status == 1) // Success
+                    {
+                        alert(result.message);
+                    }
+                    else // Err
+                    {
+                        alert(result.message);
+                    }
+                }
+            });
+        });
+      });
     </script>
 
   </body>
