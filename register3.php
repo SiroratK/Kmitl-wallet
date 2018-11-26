@@ -55,7 +55,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
               </div>
 
               <div id="customer" class="typeReg" style="display:block">
-                <form>
+                <form action="check/shopRegis.php">
                   <label for="name" class="sr-only">Name</label>
                   <input type="text" id="name" class="form-control" pattern="[A-Za-z]{2,}" maxlength="20"
                     title="Name must contain only character" placeholder="Name" required autofocus>
@@ -88,7 +88,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
               </div>
 
               <div id="shop" class="w3-container typeReg" style="display:none">
-                <form>
+                <form action="check/shopRegis.php">
                   <label for="name" class="sr-only">Name</label>
                   <input type="text" id="name" class="form-control" pattern="[A-Za-z]{2,}" maxlength="20"
                     title="Name must contain only character" placeholder="Name" required autofocus>
@@ -98,7 +98,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
                     title="Surname must contain only character" placeholder="Surname" required>
 
                   <label for="shopNeme" class="sr-only">Shop's name</label>
-                  <input type="text" id="shopNeme" class="form-control" pattern=".{2,}" maxlength="40"
+                  <input type="text" id="shopName" class="form-control" pattern=".{2,}" maxlength="40"
                     title="Surname must contain only character" placeholder="Shop's name" required>
 
                   <label for="inputEmail" class="sr-only">Email address</label>
@@ -163,6 +163,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
         evt.currentTarget.firstElementChild.className += " tab-bottombar-org";
       }
     </script>
+
 
   </body>
 </html>

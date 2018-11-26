@@ -39,11 +39,65 @@
 
 <script>
 function myFunction() {
-    var para = document.createElement("P");
-    var t = document.createTextNode("This is a paragraph.");
+    var profile = document.createElement("IMG");
+    profile.setAttribute("src", "images/default-user.png");
+    profile.setAttribute("width", "35");
+    profile.setAttribute("height", "35");
+    var section = document.createElement("DIV");
 
-    para.appendChild(t);
-    document.getElementById("frame").append(para);
+    var pic = document.createElement("DIV");
+    var info = document.createElement("DIV");
+    var amount = document.createElement("DIV");
+    var colInfo = document.createElement("DIV");
+
+    var namediv = document.createElement("DIV");
+    var iddiv = document.createElement("DIV");
+    var datediv = document.createElement("DIV");
+
+      var name = document.createTextNode("Name");
+      var kmitlid = document.createTextNode("59000000");
+      var datetime = document.createTextNode("Date");
+      var money = document.createTextNode("฿");
+section.className = "row";
+pic.className = "col-2";
+colInfo.className = "col-7";
+amount.className = "col-3 text-right";
+section.style.padding=15;
+info.style.padding=5;
+amount.style.padding=5;
+pic.align="center";
+pic.style.padding=5;
+namediv.className = "text-left";
+iddiv.className = "text-left";
+datediv.className = "text-left";
+
+
+
+info.className="vbox";
+info.style="width:100%";
+
+
+
+
+
+
+
+
+    //para.className = "a";
+    namediv.appendChild(name);
+    iddiv.appendChild(kmitlid);
+    datediv.appendChild(datetime);
+    amount.appendChild(money);
+    info.appendChild(namediv);
+    info.appendChild(iddiv);
+    info.appendChild(datediv);
+    pic.appendChild(profile);
+    colInfo.appendChild(info);
+    section.appendChild(pic);
+    section.appendChild(colInfo);
+    section.appendChild(amount);
+    document.getElementById("frame").append(section);
+
 }
 </script>
   </div>
