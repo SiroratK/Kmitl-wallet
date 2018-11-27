@@ -15,7 +15,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
       <title>KMITL Wallet - Pincode</title>
 
       <!-- Bootstrap core CSS -->
-      <link href="css/bootstrasp.min.css" rel="stylesheet">
+      <!-- <link href="css/bootstrasp.min.css" rel="stylesheet"> -->
 
       <!-- Custom styles for this template300*162 -->
       <link href="scss/all.css" rel="stylesheet">
@@ -27,113 +27,133 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
     <body>
       <div class="container-fluid">
 
-            <div class="card">
-              <div class="container" style="margin-left:0;margin-top:10;z-index:5">
-                    <script> document.write('<a class="back" href="javascript:history.back()"> < BACK </a>'); </script>
-              </div>
-              <div class="form text-center">
-                <img class="mb-4 logo" src="images/logo.png" alt="logo" >
-
-                <p class="mb-3 topic">Enter your PIN Code</p>
-
-                <svg height="40" width="145">
-                      <circle cx="20" cy="10" r="5" class="dot" name="circle" id="circle0"/>
-                      <circle cx="55" cy="10" r="5" class="dot" name="circle" id="circle1"/>
-                      <circle cx="90" cy="10" r="5" class="dot" name="circle" id="circle2"/>
-                      <circle cx="125" cy="10" r="5" class="dot" name="circle" id="circle3"/>
-                </svg>
-                <table align="center">
-                  <tr>
-                    <td><button type="button" class="button button5" id="pin1">1</button></td>
-                    <td><button type="button" class="button button5" id="pin2">2</button></td>
-                    <td><button type="button" class="button button5" id="pin3">3</button></td>
-                  </tr>
-                  <tr>
-                    <td><button type="button" class="button button5" id="pin4">4</button></td>
-                    <td><button type="button" class="button button5" id="pin5">5</button></td>
-                    <td><button type="button" class="button button5" id="pin6">6</button></td>
-                  </tr>
-                  <tr>
-                    <td><button type="button" class="button button5" id="pin7">7</button></td>
-                    <td><button type="button" class="button button5" id="pin8">8</button></td>
-                    <td><button type="button" class="button button5" id="pin9">9</button></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td><button type="button" class="button button5" id="pin0">0</button></td>
-                    <td><button type="button" class="button button5" id="del">del</button></td>
-                  </tr>
-                </table>
-              </div>
-            </div>
+        <div class="card">
+          <div class="container" style="margin-left:0;margin-top:10;z-index:5">
+                <script> document.write('<a class="back" href="javascript:history.back()"> < BACK </a>'); </script>
           </div>
+          <div class="form text-center">
+            <img class="mb-4 logo" src="images/logo.png" alt="logo" >
 
+            <p class="mb-3 topic">Enter your PIN Code</p>
+
+            <svg height="40" width="145">
+                  <circle cx="20" cy="10" r="5" class="dot" name="circle" id="circle0"/>
+                  <circle cx="55" cy="10" r="5" class="dot" name="circle" id="circle1"/>
+                  <circle cx="90" cy="10" r="5" class="dot" name="circle" id="circle2"/>
+                  <circle cx="125" cy="10" r="5" class="dot" name="circle" id="circle3"/>
+            </svg>
+            <table align="center">
+              <tr>
+                <td><button type="button" class="button button5" id="pin1">1</button></td>
+                <td><button type="button" class="button button5" id="pin2">2</button></td>
+                <td><button type="button" class="button button5" id="pin3">3</button></td>
+              </tr>
+              <tr>
+                <td><button type="button" class="button button5" id="pin4">4</button></td>
+                <td><button type="button" class="button button5" id="pin5">5</button></td>
+                <td><button type="button" class="button button5" id="pin6">6</button></td>
+              </tr>
+              <tr>
+                <td><button type="button" class="button button5" id="pin7">7</button></td>
+                <td><button type="button" class="button button5" id="pin8">8</button></td>
+                <td><button type="button" class="button button5" id="pin9">9</button></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><button type="button" class="button button5" id="pin0">0</button></td>
+                <td><button type="button" class="button button5" id="del">del</button></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+      // pass PHP variable declared above to JavaScript variable
+        var page = <?php echo json_encode($_POST["page"]) ?>;
+      </script>
 
       <script>
         var pincodeA = ["", "", "", ""];
         var pincode;
         var i = 0;
         var circle = ["#circle0", "#circle1", "#circle2", "#circle3"];
+        // var but = ["#pin0", "#pin1", "#pin2", "#pin3", "#pin4", "#pin5", "#pin6", "#pin7", "#pin8", "#pin9"];
+        //
+        // for (var j = 0; j < 10; i++) {
+        //   $(but[j]).click(function(){
+        //     pincodeA[i] = j.toString();
+        //     increaseDot()
+        //   });
+        // }
+        $("#pin1").click(function(){
+          pincodeA[i] = "1";
+          increaseDot();
+        });
+        $("#pin2").click(function(){
+          pincodeA[i] = "2";
+          increaseDot();
+        });
+        $("#pin3").click(function(){
+          pincodeA[i] = "3";
+          increaseDot();
+        });
+        $("#pin4").click(function(){
+          pincodeA[i] = "4";
+          increaseDot();
+        });
+        $("#pin5").click(function(){
+          pincodeA[i] = "5";
+          increaseDot();
+        });
+        $("#pin6").click(function(){
+          pincodeA[i] = "6";
+          increaseDot();
+        });
+        $("#pin7").click(function(){
+          pincodeA[i] = "7";
+          increaseDot();
+        });
+        $("#pin8").click(function(){
+          pincodeA[i] = "8";
+          increaseDot();
+        });
+        $("#pin9").click(function(){
+          pincodeA[i] = "9";
+          increaseDot();
+        });
+        $("#pin0").click(function(){
+          pincodeA[i] = "0";
+          increaseDot();
+        });
+        $("#del").click(function(){
+          if (i > 0){
+            i--;
+            $(circle[i]).removeClass("dot2");
+            $(circle[i]).addClass("dot");
+          }
+        });
 
-          $("#pin1").click(function(){
-            pincodeA[i] = "1";
-            increaseDot()
-          });
-          $("#pin2").click(function(){
-            pincodeA[i] = "2";
-            increaseDot()
-          });
-          $("#pin3").click(function(){
-            pincodeA[i] = "3";
-            increaseDot()
-          });
-          $("#pin4").click(function(){
-            pincodeA[i] = "4";
-            increaseDot();
-          });
-          $("#pin5").click(function(){
-            pincodeA[i] = "5";
-            increaseDot()
-          });
-          $("#pin6").click(function(){
-            pincodeA[i] = "6";
-            increaseDot()
-          });
-          $("#pin7").click(function(){
-            pincodeA[i] = "7";
-            increaseDot()
-          });
-          $("#pin8").click(function(){
-            pincodeA[i] = "8";
-            increaseDot()
-          });
-          $("#pin9").click(function(){
-            pincodeA[i] = "9";
-            increaseDot()
-          });
-          $("#pin0").click(function(){
-            pincodeA[i] = "0";
-            increaseDot()
-          });
-          $("#del").click(function(){
-            if (i > 0){
-              i--;
-              $(circle[i]).removeClass("dot2");
-              $(circle[i]).addClass("dot");
-            }
-          });
+        function increaseDot(){
+          if (i < 4) {
+            $(circle[i]).addClass("dot2");
+            i++;
+            if (i == 4){
+              pincode = pincodeA[0] + pincodeA[1] + pincodeA[2] + pincodeA[3]
+              console.log(pincode);
 
-          function increaseDot(){
-            if (i < 4) {
-              $(circle[i]).addClass("dot2");
-              i++;
-              if (i == 4){
-                pincode = pincodeA[0] + pincodeA[1] + pincodeA[2] + pincodeA[3]
-                console.log(pincode);
+              if(page == "topup"){
+                window.location = 'menu.php';
               }
             }
           }
+        }
       </script>
+      <!-- <script>
+      //  var qs = new Querystring();
+        var v1 = qs.get("page");
+          console.log(v1);
+      </script> -->
+
 
     </body>
 </html>

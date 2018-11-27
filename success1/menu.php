@@ -29,33 +29,57 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
             <div class="container" style="margin-left:0;margin-top:10;z-index:5">
                   <script> document.write('<a class="back" href="javascript:history.back()"> < BACK </a>'); </script>
             </div>
-            <div class="form text-center">
-              <img class="mb-4 logo" src="images/logo.png" alt="logo" >
+              <div class="form text-center">
+                <img class="mb-4 logo" src="images/logo.png" alt="logo" >
 
-              <div class="row">
-                <div class="col-4 col-menu" onclick=location.href='scan.php'>
-                  <img src ="images/project-img/project/Scan.svg" class="img-menu">
+              <div class="container">
+                <div id="customer" style="display:none">
+                  <div class="row">
+                    <div class="col-4 col-menu" onclick=location.href='scan.php'>
+                      <img src ="images/project-img/project/Scan.svg" class="img-menu">
+                    </div>
+                    <div class="col-4 col-menu" onclick=location.href='topup.php'>
+                      <img src ="images/project-img/project/topup.svg" class="img-menu">
+                    </div>
+                    <div class="col-4 col-menu" onclick=location.href='transfer.php'>
+                      <img src ="images/project-img/project/transfer.svg" class="img-menu">
+                    </div>
+                  </div>
                 </div>
-                <div class="col-4 col-menu" onclick=location.href='topup.php'>
-                  <img src ="images/project-img/project/topup.svg" class="img-menu">
-                </div>
-                <div class="col-4 col-menu" onclick=location.href='transfer.php'>
-                  <img src ="images/project-img/project/transfer.svg" class="img-menu">
-                </div>
-              </div>
 
-              <div class="row" >
-                <div class="col-4 col-menu" onclick=location.href='promotion.php'>
-                  <img src ="images/project-img/project/promo.svg" class="img-menu">
+                <div id="shop" style="display:block">
+                  <div class="row">
+                    <div class="col-4 col-menu" onclick=location.href='scan.php'>
+                      <img src ="images/project-img/project/Scan.svg" class="img-menu">
+                    </div>
+                    <div class="col-4 col-menu" onclick=location.href='topup.php'>
+                      <img src ="images/project-img/project/topup.svg" class="img-menu">
+                    </div>
+                    <div class="col-4 col-menu" onclick=location.href='transfer.php'>
+                      <img src ="images/project-img/project/transfer.svg" class="img-menu">
+                    </div>
+                  </div>
                 </div>
-                <div class="col-4 col-menu" onclick=location.href='order.php'>
-                  <img src ="images/project-img/project/order.svg" class="img-menu">
-                </div>
-                <div class="col-4 col-menu" onclick=location.href='order.php'> <!--wewrwerwerwer-->
-                  <img src ="images/project-img/project/history.svg" class="img-menu">
+
+                <div class="row" >
+                  <div class="col-4 col-menu" onclick=location.href='promotion.php'>
+                    <img src ="images/project-img/project/promo.svg" class="img-menu">
+                  </div>
+                  <div class="col-4 col-menu" onclick=location.href='order.php'>
+                    <img src ="images/project-img/project/order.svg" class="img-menu">
+                  </div>
+                  <div class="col-4 col-menu" onclick=location.href='order.php'> <!--wewrwerwerwer-->
+                    <img src ="images/project-img/project/history.svg" class="img-menu">
+                  </div>
                 </div>
               </div>
             </div>
         </div>
+
+        <script>
+          function openType(typeMenu) {
+            document.getElementById(typeMenu).style.display = "block";
+          }
+        </script>
     </body>
 </html>
