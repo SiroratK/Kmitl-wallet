@@ -1,3 +1,16 @@
+<?php
+   session_start();
+      $myemail = $_SESSION["email"];
+      $action = $_SESSION["action"];
+      $user_from = $_SESSION["user_from"] ;
+      $user_to = $_SESSION["user_to"] ;
+      $id_from = $_SESSION["id_from"];
+      $id_to = $_SESSION["id_to"] ;
+      $amount = $_SESSION["amount"];
+      date_default_timezone_set("Asia/Bangkok");
+      $datetime =date("Y-m-d")." " . date("h:i:sa");
+
+?>
 
 <html lang="en">
   <head>
@@ -107,24 +120,26 @@
 
 
                 <div class="row" style="margin-bottom:10px">
-                  <div class="col-4 textRes" style="text-align:left;padding:5;">Topup</div>
-                  <div class="col-8 textRes " style="text-align:right;padding:5;">11-11-2018</div>
+                  <div class="col-4 textRes" style="text-align:left;padding:5;" id="action">Topup</div>
+                  <div class="col-8 textRes " style="text-align:right;padding:5;" id="printTime"></div>
                 </div>
 
-                <div class="row" style="margin-bottom:10px">
+                <div class="row" style="margin-bottom:10px; display:none" id="fromdiv">
                   <div class="col-3 textRes"  style="text-align:left;padding:5;">From: </div>
-                  <div class="col-9 textRes" style="text-align:right;padding:5;">Waritthon Sampantakit <br> 59011194 </div>
+                  <div class="col-9 textRes" style="text-align:right;padding:5;" id="fromUser">Waritthon Sampantakit <br> 59011194 </div>
                 </div>
 
-                <div class="row" style="margin-bottom:10px">
+                <div class="row" style="margin-bottom:10px; display:none" id="todiv">
                   <div class="col-3 textRes"  style="text-align:left;padding:5;">To: </div>
-                  <div class="col-9 textRes" style="text-align:right;padding:5;">Waritthon Sampantakit <br> 59011194 </div>
+                  <div class="col-9 textRes" style="text-align:right;padding:5;"id="toUser">Waritthon Sampantakit <br> 59011194 </div>
                 </div>
 
                 <div class="row" style="margin-bottom:10px">
                   <div class="col-4 textRes"  style="text-align:left;padding:5;">Amount: </div>
-                  <div class="col-8 textRes" style="text-align:right;padding:5;">0.00 ฿ </div>
+                  <div class="col-8 textRes" style="text-align:right;padding:5;" id="amounts">0.00 ฿ </div>
                 </div>
+
+
 
 
 
@@ -136,7 +151,7 @@
               <div class="row" style="margin-top:50px;">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                <a href="print.php">  <button class="btn btn-lg btn-primary btn-block inner" >Confirm</button></a>
+                <a href="slip.php">  <button class="btn btn-lg btn-primary btn-block inner" >Confirm</button></a>
                 </div>
                 <div class="col-md-4"></div>
               </div>
@@ -151,3 +166,17 @@
 
 </body>
 </html>
+<script type="text/javascript">
+  var showDate = <?php echo json_encode($datetime)?>;
+   var action = <?php echo json_encode($action) ?>;
+   var user_from = <?php echo json_encode($user_from) ?>;
+   var user_to = <?php echo json_encode($user_to) ?>;
+   var id_from = <?php echo json_encode($id_from) ?>;
+   var id_to = <?php echo json_encode($id_to) ?>;
+   var amount = <?php echo json_encode($amount) ?>;
+   document.getElementById("action").innerHTML = action;
+   // document.getElementById("printTime").innerHTML =  showDate;
+   document.getElementById("fromUser").innerHTML = user_from + "<br>" + id_from;
+   document.getElementById("toUser").innerHTML = user_to + "<br>" + id_to;
+   document.getElementById("amounts").innerHTML = amount;
+</script>

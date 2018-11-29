@@ -1,3 +1,11 @@
+<?php
+      session_start();
+
+      $amount = $_SESSION["amount"];
+      $shopID = $_SESSION["shopID"];
+      $user_to = $_SESSION["user_to"];
+      
+?>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
@@ -21,7 +29,10 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
       <link href="scss/all.css" rel="stylesheet">
 
       <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
     </head>
 
     <body>
@@ -128,8 +139,29 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
               $(circle[i]).addClass("dot2");
               i++;
               if (i == 4){
-                pincode = pincodeA[0] + pincodeA[1] + pincodeA[2] + pincodeA[3]
-                console.log(pincode);
+                pincode = pincodeA[0] + pincodeA[1] + pincodeA[2] + pincodeA[3];
+                $(document).ready(function(){
+                
+                  var data = <?php echo json_encode(array('amount'=>$amount,'shop'=>$shopID,'user_to'=>$user_to)) ?>;
+                  data.pincode = pincode
+                  alert(data.user_to+" "+data.amount+" "+data.pincode);
+                  $.ajax({
+                    type : "POST",
+                    dataType : "json",
+                    url : 'checkPin.php',
+                    data : data,
+                    success : function(data){
+                      if (data.status != 1){
+                      alert(data.msg)
+                      }
+                      else {
+                        alert(data.msg)
+                        document.location.href = "confirm.php";
+
+                      }
+                    }
+                  });
+                });
               }
             }
           }

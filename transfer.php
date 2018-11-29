@@ -15,6 +15,8 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="images/icon/icon.ico">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
     <title>KMITL Wallet - Transfer</title>
 
@@ -34,16 +36,16 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
             <div class="container" style="margin-left:0;margin-top:10;z-index:5">
                   <script> document.write('<a class="back" href="javascript:history.back()"> < BACK </a>'); </script>
             </div>
-            <form class="form text-center">
+            <form action="javascript:" class="form text-center" id ="frm" name ="frm" method ="POST">
               <img class="mb-4 logo" src="images/logo.png" alt="logo" >
 
               <label for="transID" class="sr-only">KMITL ID</label>
-              <input type="text" id="transID" class="form-control form-control-bottom" pattern="[0-9]{8}" maxlength="8" 
-                title="KMITL is only number" placeholder="ID or Username" required autofocus>
+              <input type="email" id="transMail" name="transMail" class="form-control form-control-bottom" 
+                title="KMITL is only number" placeholder="Email address" required autofocus>
 
               <div class="input-group">
                 <label for="amount" class="sr-only">amount</label>
-                <input type="number" step="0.01" min="0.00" id="amount" class="form-control form-control-bottom" placeholder="Amount" required autofocus>
+                <input type="number" step="0.01" min="0.00" id="amount" name="amount" class="form-control form-control-bottom" placeholder="Amount" required autofocus>
                 <span class="input-group-addon">฿</span>
               </div>
 
@@ -55,5 +57,30 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
         </div>
       </div>
     </div>
+    <script >
+
+
+
+                $("#frm").submit(function () {
+                    $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    data: $("#frm").serialize(),
+                    url: 'checkTransfer.php',
+                    success: function(data) {
+                      if (data.status == 1 ){
+                        alert (data.msg);
+                        document.location.href = "pincode.php";
+
+ 
+                      }
+                      else {
+                        alert(data.msg);
+                      }
+                    }
+
+                    });
+                });
+    </script>
   </body>
 </html>

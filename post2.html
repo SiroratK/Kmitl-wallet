@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>ThaiCreate.Com Tutorials</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+
+<body>
+    <form action="javascript:" name="frm" id="frm" method="POST">
+    <input type="text" name="txt" id="txt">
+    <input type="text" name="txt2" id="txt2">
+
+    <input  type="submit" name="btnSend" id="btnSend" value="Send">
+    </form>
+
+    <div></div>
+    <script type="text/javascript">
+        var ff = "ee";
+        var GG = {'ok': ff};
+
+            $("#frm").submit(function () {
+                alert("erere");
+                $.ajax({
+                type: "POST",
+                dataType: "json",
+                data: GG,
+                url: 'save2.php',
+                success: function(data) {
+                        alert(data);
+                        //document.location.href = "save2.php";
+                    
+
+                }
+                });
+
+            });
+
+    </script>
+</body>
+
+</html>

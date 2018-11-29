@@ -1,3 +1,38 @@
+<?php
+   session_start();
+   include("config/connect.php");
+
+
+
+   if($_SERVER["REQUEST_METHOD"] == "POST") {
+      // username and password sent from form
+
+      $myemail = mysqli_real_escape_string($db,$_POST['inputEmail']);
+      $mypassword = mysqli_real_escape_string($db,$_POST['inputPassword']);
+
+
+      $sql = "SELECT * FROM userData WHERE Email = '$myemail' and password = '$mypassword'";
+      $result = mysqli_query($db,$sql);
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+      $mystatus = $row["status"];
+      $count = mysqli_num_rows($result);
+
+      // If result matched $myusername and $mypassword, table row must be 1 row
+
+      if($count == 1) {
+
+         $_SESSION["email"] = $myemail;
+         $_SESSION["status"] = $mystatus;
+
+         header("location: showInfo.php");
+      }else {
+         $error = "Your Login Name or Password is invalid";
+         //echo "string";
+      }
+   }
+?>
+
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
@@ -28,6 +63,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
   </head>
 
   <body>
+
     <div class="container-fluid">
       <div class="row">
         <div class="col">
@@ -35,14 +71,14 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
             <!-- <div class="container" style="margin-left:0;margin-top:10;z-index:5">
                   <script> document.write('<a class="back" href="javascript:history.back()"> < BACK </a>'); </script>
             </div> -->
-            <form class="form text-center">
+            <form class="form text-center" method="POST">
               <img class="mb-4 logo" src="images/logo.png" alt="logo" >
 
               <label for="inputEmail" class="sr-only">Email address</label>
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+              <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
 
               <label for="inputPassword" class="sr-only">Password</label>
-              <input type="password" id="inputPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              <input type="password" name="inputPassword" id="inputPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                 class="form-control" placeholder="Password" required>
 
@@ -52,7 +88,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
                 </label>
               </div>
 
-              <button formaction="showInfo.php" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+              <button formaction="" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
               <a href="register.php" class="btn btn-lg btn-primary btn-block" role="button">Register</a>
               <p class="mt-5 mb-3 text-muted">&copy; 2018 CE-KMITL</p>
 
@@ -61,5 +97,10 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
         </div>
       </div>
     </div>
+    <!-- <script>
+      $( document ).ready(function() {
+        alert($_SESSION['Email']);
+      });
+    </script> -->
   </body>
 </html>

@@ -25,6 +25,8 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
     <link href="scss/all.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   </head>
 
   <body class="text-center">
@@ -35,17 +37,17 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
             <div class="container" style="margin-left:0;margin-top:10;z-index:5">
                   <script> document.write('<a class="back" href="javascript:history.back()"> < BACK </a>'); </script>
             </div>
-            <form class="form">
+            <form action="javascript:"class="form" id="frm" name="frm" method="POST">
               <img class="mb-4 logo" src="images/logo.png" alt="logo" >
 
               <div class="input-group">
                 <label for="amountScan" class="sr-only">amount</label>
-                <input placeholder="Amount" class="form-control form-control-bottom" type="number" step="0.01" min="0.00" id="amountScan" onchange="setTwoNumberDecimal" required autofocus>
+                <input placeholder="Amount" name="amount" id="amount" class="form-control form-control-bottom" type="number" step="0.01" min="0.00" id="amountScan" onchange="setTwoNumberDecimal" required autofocus>
                 <span class="input-group-addon">฿</span>
               </div>
 
               <br>
-              <button style="max-width: 40%; align-item: center; margin:auto" class="btn btn-lg btn-primary btn-block" type="submit">ENTER</button>
+              <button name="btn" id="btn" style="max-width: 40%; align-item: center; margin:auto" class="btn btn-lg btn-primary btn-block" type="submit">ENTER</button>
 
               <p class="mt-5 mb-3 text-muted">&copy; 2018 CE-KMITL</p>
             </form>
@@ -55,6 +57,27 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
     </div>
 
     <script>
+      $("#frm").submit(function () {
+                    $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    data: $("#frm").serialize(),
+                    url: 'checkWithdraw.php',
+                    success: function(data) {
+
+                      if (data == 1 ){
+                        alert ("successfully!");
+                        document.location.href = "showInfo.php";
+
+ 
+                      }
+                      else {
+                        alert("fail");
+                      }
+                    }
+
+                    });
+                });
       function setTwoNumberDecimal(event) {
         this.value = parseFloat(this.value).toFixed(2);
       }

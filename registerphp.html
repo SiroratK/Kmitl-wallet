@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <title>ThaiCreate.Com Tutorials</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+    <form name="frm" id="frm" method="POST">
+    <input type="text" name="txt" id="txt"></input>
+    <input type="text" name="txt2" id="txt2"></input>
+
+    <input type="button" name="btnSend" id="btnSend" value="Send">
+    </form>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnSend").click(function () {
+                var jsonObj = { "name": "Wisarut Nukitram", "age": "39" }
+                $.ajax({
+                    type: "POST",
+                    url: "saveShop.php",
+                    data: $("#frm").serialize(),
+                    success: function (result) {
+                        alert(result);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

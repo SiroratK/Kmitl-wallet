@@ -1,3 +1,9 @@
+<?php
+session_start();
+$email = $_SESSION["email"];
+$status = $_SESSION["status"];
+?>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
@@ -27,35 +33,72 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
         <div class="container-fluid">
           <div class="card">
             <div class="container" style="margin-left:0;margin-top:10;z-index:5">
-                  <script> document.write('<a class="back" href="javascript:history.back()"> < BACK </a>'); </script>
+                  <script> document.write('<a class="back" href="showInfo.php"> < BACK </a>'); </script>
             </div>
-            <div class="form text-center">
-              <img class="mb-4 logo" src="images/logo.png" alt="logo" >
+              <div class="form text-center">
+                <img class="mb-4 logo" src="images/logo.png" alt="logo" >
 
-              <div class="row">
-                <div class="col-4 col-menu" onclick=location.href='scan.php'>
-                  <img src ="images/project-img/project/Scan.svg" class="img-menu">
-                </div>
-                <div class="col-4 col-menu" onclick=location.href='topup.php'>
-                  <img src ="images/project-img/project/topup.svg" class="img-menu">
-                </div>
-                <div class="col-4 col-menu" onclick=location.href='transfer.php'>
-                  <img src ="images/project-img/project/transfer.svg" class="img-menu">
-                </div>
-              </div>
+              <div class="container">
 
-              <div class="row" >
-                <div class="col-4 col-menu" onclick=location.href='promotion.php'>
-                  <img src ="images/project-img/project/promo.svg" class="img-menu">
+                <div id="Customer" style="display:none">
+                  <div class="row">
+                    <div class="col-4 col-menu" onclick=location.href='scan.php'>
+                      <img src ="images/project-img/project/Scan.svg" class="img-menu">
+                    </div>
+                    <div class="col-4 col-menu" onclick=location.href='topup.php'>
+                      <img src ="images/project-img/project/topup.svg" class="img-menu">
+                    </div>
+                    <div class="col-4 col-menu" onclick=location.href='transfer.php'>
+                      <img src ="images/project-img/project/transfer.svg" class="img-menu">
+                    </div>
+                  </div>
                 </div>
-                <div class="col-4 col-menu" onclick=location.href='order.php'>
-                  <img src ="images/project-img/project/order.svg" class="img-menu">
+
+                <div id="Shop" style="display:none">
+                  <div class="row">
+
+                    <div class="col-4 col-menu" onclick=location.href='withdraw.php'>
+                      <img src ="images/project-img/project/withdraw.svg" class="img-menu">
+                    </div>
+                    <div class="col-4 col-menu" onclick=location.href='shop.php'>
+                      <img src ="images/project-img/project/history.svg" class="img-menu">
+                    </div>
+                    <div class="col-4 col-menu" onclick=location.href='transfer.php'>
+                      <img src ="images/project-img/project/transfer.svg" class="img-menu">
+                    </div>
+
+                  </div>
                 </div>
-                <div class="col-4 col-menu" onclick=location.href='order.php'> <!--wewrwerwerwer-->
-                  <img src ="images/project-img/project/history.svg" class="img-menu">
-                </div>
+
+                <!-- <div class="row" >
+                  <div class="col-4 col-menu" onclick=location.href='promotion.php'>
+                    <img src ="images/project-img/project/promo.svg" class="img-menu">
+                  </div>
+                  <div class="col-4 col-menu" onclick=location.href='order.php'>
+                    <img src ="images/project-img/project/order.svg" class="img-menu">
+                  </div>
+                  <div class="col-4 col-menu" onclick=location.href='order.php'>
+                    <img src ="images/project-img/project/history.svg" class="img-menu">
+                  </div>
+                </div> -->
               </div>
             </div>
         </div>
+
+        <script>
+
+          var stats = <?php echo json_encode($status)?>;
+
+          // function openType(typeMenu) {
+
+           if (stats=="admin"){
+             window.location = 'token.php';
+           }else{
+             document.getElementById(stats).style.display = "block";
+           }
+            //document.getElementById("shop").style.display = "block";
+            // document.getElementById(regType).style.display = "block";
+          // }
+        </script>
     </body>
 </html>

@@ -14,6 +14,8 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="images/icon/icon.ico">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
     <title>KMITL Wallet - Register</title>
 
@@ -55,21 +57,21 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
               </div>
 
               <div id="customer" class="typeReg" style="display:block">
-                <form action="" name="frmMain" id="frmMain" method="post">
+                <form action="javascript:" name="frmMainCustomer" id="frmMainCustomer" method="post">
                   <label for="name" class="sr-only">Name</label>
-                  <input type="text" id="name" class="form-control" pattern="[A-Za-z]{2,}" maxlength="20"
-                    title="Name must contain only character" placeholder="Name" required autofocus>
+                  <input type="text" id="name" name="name" class="form-control" pattern="[A-Za-z]{2,}" maxlength="20"
+                    title="Name must contain at least 2 characters" placeholder="Name" required autofocus>
 
                   <label for="surname" class="sr-only">Surname</label>
-                  <input type="text" id="surname" class="form-control" pattern="[A-Za-z]{2,}" maxlength="20"
-                    title="Surname must contain only character" placeholder="Surname" required>
+                  <input type="text" id="surname" name="surname" class="form-control" pattern="[A-Za-z]{2,}" maxlength="20"
+                    title="Surname must contain at least 2 characters" placeholder="Surname" required>
 
                   <label for="inputEmail" class="sr-only">Email address</label>
-                  <input type="email" id="inputEmail" class="form-control" pattern="[a-z0-9._-]+@kmitl.ac.th$"
+                  <input type="email" id="inputEmail" name="inputEmail" class="form-control" pattern="[a-zA-Z0-9._-]+@+(k|K)+(m|M)+(i|I)+(t|T)+(l|L)+.(a|A)+(c|C)+.(t|T)+(h|H)$"
                   title="E-mail must use @kmitl.ac.th domain" placeholder="Email address" required>
 
                   <label for="inputPassword" class="sr-only">Password</label>
-                  <input type="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                     title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                     class="form-control" placeholder="Password" required>
 
@@ -79,33 +81,33 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
                     class="form-control" placeholder="Confirm Password" required>
 
                   <label for="inputPin" class="sr-only">PIN Code</label>
-                  <input type="password" id="inputPin" pattern="[0-9]{4}" title="PIN code must be 4 digits of number"
+                  <input type="password" id="inputPin" name ="inputPin" pattern="[0-9]{4}" title="PIN code must be 4 digits of number"
                     maxlength="4" class="form-control" placeholder="PIN Code" required>
 
-                  <input type="text" id="status" value="customer" class="sr-only" disabled="disabled">
-                  <button formaction="signin.php" class="btn btn-lg btn-primary btn-block" type="submit" id="btnSendCustomer">Create your account</button>
+                  <!-- <input type="text" id="status" value="customer" name="status" class="sr-only" disabled="disabled"> -->
+                  <button  class="btn btn-lg btn-primary btn-block" type="submit" id="btnSendCustomer">Create your account</button>
                 </form>
               </div>
 
               <div id="shop" class="w3-container typeReg" style="display:none">
-                <form>
+                <form action="javascript:" name="frmMainShop" id="frmMainShop" method="post" >
                   <label for="name" class="sr-only">Name</label>
-                  <input type="text" id="name" class="form-control" pattern="[A-Za-z]{2,}" maxlength="20"
-                    title="Name must contain only character" placeholder="Name" required autofocus>
+                  <input type="text" id="nameS" name="nameS" class="form-control" pattern="[A-Za-z]{2,}" maxlength="20"
+                    title="Name must contain at least 2 characters" placeholder="Name" required autofocus>
 
                   <label for="surname" class="sr-only">Surname</label>
-                  <input type="text" id="surname" class="form-control" pattern="[A-Za-z]{2,}" maxlength="20"
-                    title="Surname must contain only character" placeholder="Surname" required>
+                  <input type="text" id="surnameS" name ="surnameS" class="form-control" pattern="[A-Za-z]{2,}" maxlength="20"
+                    title="Surname must contain at least 2 characters" placeholder="Surname" required>
 
                   <label for="shopNeme" class="sr-only">Shop's name</label>
-                  <input type="text" id="shopNeme" class="form-control" pattern="[^'\x22x27x3Cx3Ex7Bx7Dx5Bx5D]{2,}" maxlength="40"
-                    title="Shop's name must not contain <, >, ', &#34, {, }, [, ]" placeholder="Shop's name" required>
+                  <input type="text" id="shopNameS" name = "shopNameS" class="form-control" pattern="[^'\x22x27x3Cx3Ex7Bx7Dx5Bx5D]{2,}" maxlength="40"
+                    title="Shop's name must not contain <, >, ', &quote, {, }, [, ]" placeholder="Shop's name" required>
 
                   <label for="inputEmail" class="sr-only">Email address</label>
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                  <input type="email" id="inputEmailS" name="inputEmailS" class="form-control" placeholder="Email address" required>
 
                   <label for="inputPassword" class="sr-only">Password</label>
-                  <input type="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  <input type="password" id="passwordS" name ="passwordS" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                     title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                     class="form-control" placeholder="Password" required>
 
@@ -115,17 +117,14 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
                     class="form-control" placeholder="Confirm Password" required>
 
                   <label for="inputPin" class="sr-only">PIN Code</label>
-                  <input type="password" id="inputPin" pattern="[0-9]{4}" title="PIN code must be 4 digits of number"
+                  <input type="password" id="inputPinS" name ="inputPinS" pattern="[0-9]{4}" title="PIN code must be 4 digits of number"
                     maxlength="4" class="form-control" placeholder="PIN Code" required>
 
-                  <input type="text" id="status" value="shop" class="sr-only" disabled="disabled">
-                  <button formaction="signin.php" class="btn btn-lg btn-primary btn-block" type="submit" id="btnSendShop">Create your account</button>
+                  <!-- <input type="text" id="statusS" value="shop" name ="statusS" class="sr-only" disabled="disabled"> -->
+                  <button  class="btn btn-lg btn-primary btn-block" type="submit" name ="btnSendShop" id="btnSendShop">Create your account</button>
                 </form>
               </div>
-
               <br>
-
-
               <p class="mt-5 mb-3 text-muted">&copy; 2018 CE-KMITL</p>
             </div>
           </div>
@@ -133,7 +132,45 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
       </div>
     </div>
 
-    <script>
+    <script >
+                $("#frmMainShop").submit(function () {
+                  alert($("#frmMainShop").serialize());
+                    $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    data: $("#frmMainShop").serialize(),
+                    url: 'saveShop.php',
+                    success: function(data) {
+                    if(data.status == 1){
+                        alert("Successfully");
+                        document.location.href = "signin.php";
+                    }
+                    else{
+                      alert(data.msg);
+                    }
+
+                }
+                    });
+                });
+    $("#frmMainCustomer").submit(function () {
+      alert($("#frmMainCustomer").serialize());
+        $.ajax({
+            type: "POST",
+            dataType :"json",
+            url: "saveCustomer.php",
+            data : $("#frmMainCustomer").serialize(),
+            success: function(data) {
+                    if(data.status == 1){
+                        alert("Successfully");
+                        document.location.href = "signin.php";
+                    }
+                    else{
+                      alert(data.msg);
+                    }
+
+                }
+        });
+    });
       var password = document.getElementById("password")
         , confirmPassword = document.getElementById("confirmPassword");
 
@@ -163,40 +200,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
         evt.currentTarget.firstElementChild.className += " tab-bottombar-org";
       }
 
-      $(document).ready(function () {
-          $("#btnSendCustomer").click(function () {
-              $.ajax({
-                  type: "POST",
-                  url: "saveCustomer.php",
-                  success: function (result) {
-                      if (result.status == 1) // Success
-                      {
-                          alert(result.message);
-                      }
-                      else // Err
-                      {
-                          alert(result.message);
-                      }
-                  }
-              });
-          });
-        $("#btnSendShop").click(function () {
-            $.ajax({
-                type: "POST",
-                url: "saveShop.php",
-                success: function (result) {
-                    if (result.status == 1) // Success
-                    {
-                        alert(result.message);
-                    }
-                    else // Err
-                    {
-                        alert(result.message);
-                    }
-                }
-            });
-        });
-      });
+
     </script>
 
   </body>
