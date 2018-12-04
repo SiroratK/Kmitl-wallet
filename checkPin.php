@@ -45,7 +45,7 @@
               '.$fullname.'
             )";
             $log = mysqli_query($conn,$msg) or die(mysqli_error($conn));*/
-            echo json_encode(array('status'=> 1,'msg'=>'Pay success'));
+            echo json_encode(array('status'=> 1,'msg'=>'Next'));
 
         }
         else if($_SESSION["action"] == "TRANSFER"){

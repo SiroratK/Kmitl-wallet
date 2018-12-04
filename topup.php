@@ -61,7 +61,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
     </div>
     <script>
       $("#frm").submit(function(){
-        alert($("#frm").serialize());
+        
         $.ajax({
           type: "POST",
           dataType: "json",
@@ -77,7 +77,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
               alert("fail");
             }
           }
-        }); 
+        });
       });
     </script>
   </body>

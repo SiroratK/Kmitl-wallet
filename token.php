@@ -74,7 +74,8 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
           data : $("#frm").serialize(),
           success : function(data){
             if(data.status == 1){
-            alert($("#frm").serialize());
+              var x = document.getElementById("amount").value;
+              alert("Token --->  "+ data.token+ " is value "+ x + " ฿");
             document.getElementById("showtoken").innerHTML = "Token is -->  " + data.token;
             }else{
               alert(data.token);

@@ -1,14 +1,13 @@
 <?php
    session_start();
       $myemail = $_SESSION["email"];
-      $action = $_SESSION["action"];
-      $user_from = $_SESSION["user_from"] ;
-      $user_to = $_SESSION["user_to"] ;
-      $id_from = $_SESSION["id_from"];
-      $id_to = $_SESSION["id_to"] ;
+      $shopID = $_SESSION["id_to"];
       $amount = $_SESSION["amount"];
+      $action =  $_SESSION["action"];
+      $fullname = $_SESSION["fullname"];
       date_default_timezone_set("Asia/Bangkok");
       $datetime =date("Y-m-d")." " . date("h:i:sa");
+      $conn = include('config/config.php');
 
 ?>
 
@@ -170,7 +169,7 @@
   var showDate = <?php echo json_encode($datetime)?>;
    var action = <?php echo json_encode($action) ?>;
    var user_from = <?php echo json_encode($user_from) ?>;
-   var user_to = <?php echo json_encode($user_to) ?>;
+   var user_to = <?php echo json_encode($fullname) ?>;
    var id_from = <?php echo json_encode($id_from) ?>;
    var id_to = <?php echo json_encode($id_to) ?>;
    var amount = <?php echo json_encode($amount) ?>;

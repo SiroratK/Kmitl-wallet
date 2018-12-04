@@ -40,7 +40,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
               <img class="mb-4 logo" src="images/logo.png" alt="logo" >
 
               <label for="transID" class="sr-only">KMITL ID</label>
-              <input type="email" id="transMail" name="transMail" class="form-control form-control-bottom" 
+              <input type="email" id="transMail" name="transMail" class="form-control form-control-bottom"
                 title="KMITL is only number" placeholder="Email address" required autofocus>
 
               <div class="input-group">
@@ -69,10 +69,9 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
                     url: 'checkTransfer.php',
                     success: function(data) {
                       if (data.status == 1 ){
-                        alert (data.msg);
                         document.location.href = "pincode.php";
 
- 
+
                       }
                       else {
                         alert(data.msg);

@@ -19,12 +19,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if(!$result)
         {
-        echo "The username you entered does not exist";
+        echo "<script>alert('The username you entered does not exist')</script>";
         }
 
         else if($currentPincode!= $getPincode)
         {
-        echo "You entered an incorrect pinCode";
+        echo "<script>alert('You entered an incorrect pinCode')</script>";
         }
         if($currentPincode== $getPincode){
 
@@ -32,11 +32,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         if($kiki)
         {
-        echo "Congratulations You have successfully changed your pinCode";
+          echo "<script>alert('Congratulations You have successfully changed your pinCode')</script>";
         }
        else
         {
-       echo "PIN do not match";
+       echo "<script>alert('PIN do not match')</script>";
        }
      }
 ?>
@@ -108,5 +108,22 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
         </div>
       </div>
     </div>
+
+    <script>
+      var password = document.getElementById("newPIN")
+        , confirmPassword = document.getElementById("ConfirmPIN");
+
+      function validatePassword(){
+        if(password.value != confirmPassword.value) {
+          confirmPassword.setCustomValidity("PIN Don't Match");
+        } else {
+          confirmPassword.setCustomValidity('');
+        }
+      }
+
+      password.onchange = validatePassword;
+      confirmPassword.onchange = validatePassword;
+      confirmPassword.onkeyup = validatePassword;
+    </script>
   </body>
 </html>

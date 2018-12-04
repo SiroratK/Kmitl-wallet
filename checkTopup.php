@@ -1,5 +1,5 @@
 <?php
-    session_start();    
+    session_start();
     $email = $_SESSION['email'];
     $conn = include('config/config.php');
     $msg = "SELECT `token`,`value` FROM `topup` WHERE `token` ='".$_POST["tokenTopup"]."'";
@@ -15,7 +15,7 @@
             $query = mysqli_query($conn,$sql) or die (mysqli_error($conn));
 
             if($query){
-                echo json_encode(array('status'=>'1','msg'=>'success'));
+                echo json_encode(array('status'=>'1','msg'=>'Topup success'));
             }
             else{
                 echo json_encode(array('status'=>'0','msg'=>'fail 1'));
@@ -29,5 +29,5 @@
         echo json_encode(array('status'=>'0','msg'=>'fail 3'));
 
     }
-    
+
 ?>

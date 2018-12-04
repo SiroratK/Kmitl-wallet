@@ -66,8 +66,8 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
           url : 'checkAmount.php',
           success:function(data){
             if(data == 1){
-            alert($("#frm").serialize());
-            document.location.href = "pincode.php";
+
+            document.location.href = "pincode2.php";
 
             }
           }

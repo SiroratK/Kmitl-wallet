@@ -101,7 +101,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
 
                   <label for="shopNeme" class="sr-only">Shop's name</label>
                   <input type="text" id="shopNameS" name = "shopNameS" class="form-control" pattern="[^'\x22x27x3Cx3Ex7Bx7Dx5Bx5D]{2,}" maxlength="40"
-                    title="Shop's name must not contain <, >, ', &quote, {, }, [, ]" placeholder="Shop's name" required>
+                    title="Shop's name must not contain <, >, ', &quote, {, }, [, ],number" placeholder="Shop's name" required>
 
                   <label for="inputEmail" class="sr-only">Email address</label>
                   <input type="email" id="inputEmailS" name="inputEmailS" class="form-control" placeholder="Email address" required>

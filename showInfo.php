@@ -13,7 +13,11 @@
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       $mystatus = $row["status"];
       $count = mysqli_num_rows($result);
-      // If result matched $myusername and $mypassword, table row must be 1 row
+      $fullname = $row["name"] ." " . $row["surname"];
+      $_SESSION["fullname"] = $fullname;
+      $_SESSION["shopID"] = $row["shopID"];
+          // If result matched $myusername and $mypassword, table row must be 1 row
+
       if($count == 1) {
         $balance = $row["balance"];
 
@@ -86,7 +90,7 @@
                   <a href="changePass.php"><button style="align-item: center; margin:auto" class="btn btn-lg btn-primary btn-block">Change Password</button></a>
               </div>
               <div class="col-md-4" style="margin-top:10px;">
-                  <a href="changepin.php"><button style="align-item: center; margin:auto" class="btn btn-lg btn-primary btn-block" type="submit">Change PIN Code</button></a>
+                  <a href="changePIN.php"><button style="align-item: center; margin:auto" class="btn btn-lg btn-primary btn-block" type="submit">Change PIN Code</button></a>
               </div>
               <div class="col-md-2"></div>
             </div>

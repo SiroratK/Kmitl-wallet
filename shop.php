@@ -115,7 +115,8 @@ info.style="width:100%";
 }
 </script>
 <?php
-$shopID = "1";
+session_start();
+$shopID = $_SESSION["shopID"];
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

@@ -4,12 +4,17 @@ include("config/connect.php");
 include("config/config.php");
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
+
    // username and password sent from form
    $newPassword = mysqli_real_escape_string($db,$_POST['newPwd']);
    $currentPassword = mysqli_real_escape_string($db,$_POST['currentPwd']);
    $confirmPassword = mysqli_real_escape_string($db,$_POST['ConfirmPwd']);
    $email = $_SESSION['email'];
-
+   $inputcurrentPassword = $_POST['currentPwd'];
+   $inputnewPassword  = $_POST['newPwd'];
+   $salt      = 'ceKmitlWalleteiei2018';
+   $currentPassword_hashed    = hash('sha256', $inputcurrentPassword . $salt);
+   $newPassword_hashed    = hash('sha256', $inputnewPassword . $salt);
 
    $sql = "SELECT password FROM userData WHERE Email = '$email' ";
    $result = mysqli_query($db,$sql);
@@ -19,24 +24,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if(!$result)
         {
-        echo "The username you entered does not exist";
+        echo "<script>alert('The username you entered does not exist')</script>";
         }
 
-        else if($currentPassword!= $getPassword)
+        else if($currentPassword_hashed!= $getPassword)
         {
-        echo "You entered an incorrect password";
+          echo "<script>alert('You entered an incorrect password')</script>";
         }
-        if($currentPassword== $getPassword){
+        if($currentPassword_hashed== $getPassword){
 
-          $eiei=mysqli_query($conn,"UPDATE userData SET password='$newPassword' WHERE Email ='$email'");
+          $eiei=mysqli_query($conn,"UPDATE userData SET password='$newPassword_hashed' WHERE Email ='$email'");
         }
         if($eiei)
         {
-        echo "Congratulations You have successfully changed your password";
+        echo "<script>alert('Congratulations You have successfully changed your password')</script>";
         }
        else
         {
-       echo "Passwords do not match";
+        echo "<script>alert('Passwords do not match')</script>";
        }
      }
 ?>
@@ -108,5 +113,21 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
         </div>
       </div>
     </div>
+  <script>
+    var password = document.getElementById("newPwd")
+      , confirmPassword = document.getElementById("ConfirmPwd");
+
+    function validatePassword(){
+      if(password.value != confirmPassword.value) {
+        confirmPassword.setCustomValidity("Passwords Don't Match");
+      } else {
+        confirmPassword.setCustomValidity('');
+      }
+    }
+
+    password.onchange = validatePassword;
+    confirmPassword.onchange = validatePassword;
+    confirmPassword.onkeyup = validatePassword;
+  </script>
   </body>
 </html>

@@ -9,9 +9,11 @@
 
       $myemail = mysqli_real_escape_string($db,$_POST['inputEmail']);
       $mypassword = mysqli_real_escape_string($db,$_POST['inputPassword']);
+      $inputPass = $_POST['inputPassword'];
+      $salt      = 'ceKmitlWalleteiei2018';
+      $password_hashed    = hash('sha256', $inputPass . $salt);
 
-
-      $sql = "SELECT * FROM userData WHERE Email = '$myemail' and password = '$mypassword'";
+      $sql = "SELECT * FROM userData WHERE Email = '$myemail' and password = '$password_hashed    '";
       $result = mysqli_query($db,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       $mystatus = $row["status"];
@@ -27,7 +29,7 @@
          header("location: showInfo.php");
       }else {
          $error = "Your Login Name or Password is invalid";
-         //echo "string";
+         echo "<script>alert('Your Login Name or Password is invalid')</script>";
       }
    }
 ?>

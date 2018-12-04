@@ -44,7 +44,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
               <img class="mb-4" src="images/scan.png" alt="scan" style="max-width:200px; width:100%; height:auto; margin-bottom: 0px !important">
 </div>
               <label for="shopId" class="sr-only">SHOP ID</label>
-              <input type="text" id="shopID" name="shopID"pattern="[0-9]{1,}" maxlength="8" 
+              <input type="text" id="shopID" name="shopID"pattern="[0-9]{1,}" maxlength="8"
               class="form-control form-control-bottom" placeholder="SHOP ID" required autofocus>
 
               <br>
@@ -58,7 +58,7 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
     </div>
     <script>
       $("#frm").submit(function(){
-        alert($("#frm").serialize());
+        
         $.ajax({
           type : "POST",
           dataType : "json",

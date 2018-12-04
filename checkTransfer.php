@@ -19,7 +19,7 @@
                 if($checkBalance >= $_POST["amount"]){
                     $_SESSION["amount"] =$_POST["amount"];
                     $_SESSION["user_to"] = $_POST["transMail"];
-                    echo json_encode(array('status'=> 1,'msg' =>'all pass'));
+                    echo json_encode(array('status'=> 1,'msg' =>'Next'));
                 }
             }
             else {
